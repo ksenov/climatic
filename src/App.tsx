@@ -1,6 +1,13 @@
+import Header from "./components/Header";
+
 
 function App() {
-  return <div></div>;
+  return (
+    <div className="min-h-screen bg-gray-100">
+      <Header/>
+      {/* Тут будет экран с погодой */}
+    </div>
+  );
 }
 
 export default App;
