@@ -50,12 +50,13 @@ const WeatherMain = () => {
     const weatherIcon = weatherIcons[weather?.weather[0].main] || "❓";
 
     return (
-        <div className="flex h-96 flex-col justify-center items-center h-96 bg-blue-300">
-            <div className="flex space-x-2">
-                <p className="text-4xl">{weatherIcon}</p>
-                <p className="text-4xl font-bold">{weather.main.temp}°C</p>
+        <div className="h-96 flex flex-col justify-center items-center bg-blue-300 rounded-lg shadow-lg m-4">
+            <p className="text-5xl  font-semibold mt-4 pb-6">{weather.name}</p>
+            <div className="flex items-center space-x-2">
+                <p className="text-6xl">{weatherIcon}</p>
+                <p className="text-5xl">{weather.main.temp}°C</p>
             </div>
-            <p className="text-2xl font-semibold mt-2">{weather.name}</p>
+            <p className="text-3xl">{weather?.weather[0].description}</p>
         </div>
     )
 }
