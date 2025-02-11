@@ -1,12 +1,18 @@
+const {heroui} = require('@heroui/theme');
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
     "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}"
+    "./src/**/*.{js,ts,jsx,tsx}",
+    "./node_modules/@heroui/theme/dist/components/(button|input|ripple|spinner|form).js"
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        merriweather: ['Merriweather', 'serif'],
+      }
+    },
   },
-  plugins: [],
+  plugins: [heroui()],
 }
 

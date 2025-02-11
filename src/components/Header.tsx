@@ -3,6 +3,8 @@ import { getCitiesNames } from "../services/citiesService";
 import { CityData } from "../interfaces/CityData";
 import { getWeatherByCity } from "../services/weatherService";
 import { useWeather } from "../context/WeatherContext";
+import { Button } from "@heroui/button";
+import { Input } from "@heroui/input";
 
 const Header = () => {
     const { setWeather } = useWeather();
@@ -46,7 +48,7 @@ const Header = () => {
 
         const timeout = setTimeout(() => {
             getSuggestions(newCity);
-        }, 700);
+        }, 1000);
 
         setDebounceTimeout(timeout);
     };
@@ -83,7 +85,7 @@ const Header = () => {
         <header className="w-full bg-blue-500 text-white py-4 px-6 flex justify-between items-center shadow-md">
             <h1 className="text-2xl font-bold">Climatic</h1>
             <div className="relative">
-                <input
+                <Input
                   type="text"
                   placeholder="Введите город..."
                   value={city}
@@ -104,14 +106,17 @@ const Header = () => {
                         </ul>
                 )}
             </div>
-            <button
-                onClick={handleSubmit} 
-                className="bg-white text-blue-500 px-4 py-2 rounded-md  font-boldhover:bg-gray-200 transition">
+            <Button
+                onPress={handleSubmit}
+                color="primary"
+                variant="shadow" >
                     Поиск
-            </button>
-        
+            </Button>
         </header>
     )
 }
 
 export default Header;
+
+
+// className="bg-white text-blue-500 px-4 py-2 rounded-md  font-boldhover:bg-gray-200 transition"
