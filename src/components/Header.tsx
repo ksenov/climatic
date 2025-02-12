@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-import { getCitiesNames } from "../services/citiesService";
 import { CityData } from "../interfaces/CityData";
-import { getWeatherByCity } from "../services/weatherService";
+import { getWeatherByCity, getCitiesNames } from "../services/weatherService";
 import { useWeather } from "../context/WeatherContext";
 import { Button } from "@heroui/button";
 import { Input } from "@heroui/input";
