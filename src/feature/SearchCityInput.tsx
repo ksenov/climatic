@@ -54,20 +54,35 @@ const SearchCityInput = memo(() => {
     return (
         <Autocomplete
           type="text"
+          menuTrigger='input'
+          autoFocus={true}
           items={options}
-          inputValue={inputValue}
           isLoading={loading}
           onInputChange={handleInputChange}
           onSelectionChange={handleSelectionChange}
           aria-label="Search for cities"
           placeholder="Поиск города..."
           className={`w-full max-w-md`}
+          radius="full"
           listboxProps={{
-            className: "z-10 transition-none",
+            hideSelectedIcon: true,
+            itemClasses: {
+              base: [
+                "rounded-medium",
+                "text-default-500",
+                "transition-opacity",
+                "data-[hover=true]:text-foreground",
+                "dark:data-[hover=true]:bg-default-50",
+                "data-[pressed=true]:opacity-70",
+                "data-[hover=true]:bg-default-200",
+                "data-[selectable=true]:focus:bg-default-100",
+                "data-[focus-visible=true]:ring-default-500",
+              ],
+            },
           }}
         >
             {(item) => (
-                <AutocompleteItem key={`${item.name}-${item.country}-${item.lat}-${item.lon}`}>
+                <AutocompleteItem key={`${item.name}-${item.country}-${item.lat}-${item.lon}`} textValue={item.name}>
                   <div className="p-2 !cursor-pointer">
                     <div className="font-medium">{item.name}</div>
                     {item.state && <span className="text-sm mr-1">{item.state},</span>}
