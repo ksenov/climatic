@@ -7,7 +7,7 @@ import { useWeather, WeatherProvider } from "./context/WeatherContext";
 function App() {
   return (
     <WeatherProvider>
-      <div className="min-h-screen w-full bg-gray-100">
+      <div className="min-h-screen w-full bg-sky-100">
         <Header/>
         <WeatherContent/>
       </div>
@@ -18,7 +18,7 @@ function App() {
 const WeatherContent = () => {
   const { weather } = useWeather();
   
-  if (!weather) return <div className="text-center py-8">Выберите город</div>;
+  if (!weather) return <div className="flex justify-center text-center"><p>Выберите город</p></div>;
   
   return (
     <>

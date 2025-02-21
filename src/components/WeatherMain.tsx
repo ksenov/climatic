@@ -50,13 +50,30 @@ const WeatherMain = () => {
     const weatherIcon = weatherIcons[weather?.weather[0].main] || "❓";
 
     return (
-        <div className="h-96 flex flex-col justify-center items-center bg-blue-300 rounded-lg shadow-lg m-4">
-            <p className="text-5xl  font-semibold mt-4 pb-6">{weather.name}</p>
-            <div className="flex items-center space-x-2">
-                <p className="text-6xl">{weatherIcon}</p>
-                <p className="text-5xl">{weather.main.temp}°C</p>
+        <div className="bg-gradient-to-b from-blue-600 to-custom-indigo h-72 flex justify-center rounded-lg shadow-lg m-6 p-6 text-white">
+            
+            <div className="w-full flex flex-col items-center justify-center">
+                <p className="text-5xl font-exo2 mb-6">{weather.name}</p>
+                
+                <div className='flex'>
+                    <p className="text-2xl mr-6">🌡{weather?.main.feels_like}</p>
+                    <p className="text-2xl">💧{weather?.main.humidity} %</p>
+                </div>
+                <div className='flex'>
+                    <p className="text-2xl mr-6">☁{weather?.weather[0].description}</p>
+                    <p className="text-2xl">💨{weather?.wind.speed} м/с</p>
+                </div>
+                
+                
             </div>
-            <p className="text-3xl">{weather?.weather[0].description}</p>
+
+            <div className="w-full flex items-center justify-center">
+                <div className="flex items-center space-x-2 mb-6">
+                    <p className="text-5xl">{weatherIcon}</p>
+                    <p className="text-5xl font-exo">{weather.main.temp}°C</p>
+                </div>
+            </div>
+            
         </div>
     )
 }

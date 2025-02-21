@@ -4,10 +4,12 @@ import { useWeather } from "../context/WeatherContext";
 import { Button } from "@heroui/button";
 import SearchCityInput from "../feature/SearchCityInput";
 
+
 const Header = () => {
     const { setWeather } = useWeather();
     const [city] = useState("");
 
+    
     const getWeather = async (cityName: string) => {
         try {
             const weather = await getWeatherByCity(cityName);
@@ -30,13 +32,13 @@ const Header = () => {
     }
 
     return (
-        <header className="w-full bg-blue-500 text-white py-4 px-6 flex justify-between items-center shadow-md">
+        <header className="w-auto bg-blue-600 text-white py-4 px-6 flex justify-between items-center shadow-md mx-6 mt-2 rounded-lg">
             <h1 className="text-2xl font-bold">Climatic</h1>
-            <div>
+            <div >
                 <SearchCityInput />
             </div>
-            <Button onPress={handleSubmit} color="primary" variant="shadow">
-                Поиск
+            <Button  className="bg-white text-blue-600">
+                O
             </Button>
         </header>
     )

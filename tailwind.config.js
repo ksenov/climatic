@@ -8,6 +8,11 @@ export default {
   ],
   theme: {
     extend: {
+      colors: {
+        'custom-cobalt': '#2e54d3',
+        'custom-indigo': '#202a8c',
+        'custom-dark': '#212121',
+      },
       fontFamily: {
         merriweather: ['Merriweather', 'serif'],
       }

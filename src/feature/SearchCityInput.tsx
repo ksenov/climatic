@@ -6,7 +6,6 @@ import { useWeather } from '../context/WeatherContext';
 import { getCitiesNames, getWeatherByCity } from '../services/weatherService';
 
 const SearchCityInput = memo(() => {
-    const [inputValue, setInputValue] = useState("");
     const [options, setOptions] = useState<CityData[]>([]);
     const [loading, setLoading] = useState(false);
     const { setWeather } = useWeather();  
@@ -29,7 +28,6 @@ const SearchCityInput = memo(() => {
     }, 300), []);
 
     const handleInputChange = (value: string) => {
-        setInputValue(value);
         fetchCities(value.trim());
     };
 
@@ -48,7 +46,6 @@ const SearchCityInput = memo(() => {
           console.error('Ошибка при загрузке погоды:', error);
         }
       }
-      setInputValue('');
     };
 
     return (
@@ -62,7 +59,7 @@ const SearchCityInput = memo(() => {
           onSelectionChange={handleSelectionChange}
           aria-label="Search for cities"
           placeholder="Поиск города..."
-          className={`w-full max-w-md`}
+          className={`w-96`}
           radius="full"
           listboxProps={{
             hideSelectedIcon: true,
@@ -70,19 +67,18 @@ const SearchCityInput = memo(() => {
               base: [
                 "rounded-medium",
                 "text-default-500",
-                "transition-opacity",
                 "data-[hover=true]:text-foreground",
                 "dark:data-[hover=true]:bg-default-50",
                 "data-[pressed=true]:opacity-70",
                 "data-[hover=true]:bg-default-200",
-                "data-[selectable=true]:focus:bg-default-100",
-                "data-[focus-visible=true]:ring-default-500",
+                "data-[selectable=true]:focus:bg-default-300",
+                "data-[focus-visible=true]:ring-default-700",
               ],
             },
           }}
         >
             {(item) => (
-                <AutocompleteItem key={`${item.name}-${item.country}-${item.lat}-${item.lon}`} textValue={item.name}>
+                <AutocompleteItem key={`${item.name}-${item.country}-${item.lat}-${item.lon}`} textValue=''>
                   <div className="p-2 !cursor-pointer">
                     <div className="font-medium">{item.name}</div>
                     {item.state && <span className="text-sm mr-1">{item.state},</span>}
